@@ -35,7 +35,11 @@ Final code should print the analysis to the console.
 ## I found help here -
 https://stackoverflow.com/questions/74387524/extract-info-from-dataset-javascript
 
+<<<<<<< HEAD
 ---
 ## Copyright
  © 2022 
+=======
+
+>>>>>>> fec9894cbf2987ff2d42a68a00757c7250566c65
 
