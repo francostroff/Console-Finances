@@ -1,6 +1,46 @@
-var finances = [
-['Jan-2010', 867884],
-['Feb-2010', 984655],
+
+
+// console.log(finances[finances.length - 1]) to access the end of the array
+//var finances = [
+//['Jan-2010', 867884], // A
+//['Feb-2010', 984655], // B
+//['Mar-2010', 322013], // C
+//['Apr-2010', -69417], // D
+//['May-2010', 310503]  // E
+//To calculate the average change, I need to
+//1. calculate the change from month to month
+//2.    .... for each month
+//    First change is B - A: 984655 - 867884 =  116771
+//    Next  change is C - B: 322013 - 984655 = -662642
+ //   Next  change is D - C: -69417 - 322013 = -391430
+//    Next  change is E - D: 310503 - -69417 =  379920
+//3. Add all those changes together
+//116771 + -662642 + -391430 + 379920 = -557381
+//4. Divide by the total number of changes I calculated
+//-557381 / 4 = -139345.25 (edited) 
+//:heart:
+//1
+
+
+// 
+
+
+
+
+
+
+// var or let used for variables - suggest to use let instead than var
+// let monthsOnly = 
+
+
+// get all months in new array - 
+
+
+
+
+// Data
+const data = [['Jan-2010', 867884],
+['Feb-2010', 984655], // finances [1][0]
 ['Mar-2010', 322013],
 ['Apr-2010', -69417],
 ['May-2010', 310503],
@@ -86,3 +126,38 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+// Get number of months in data
+console.log("Total months in data:", data.length);
+console.log("---------");
+
+// Amount of losses over entire period
+const lossMonths = data.filter(el => el[1] < 0);
+console.log("All loss months:");
+for(const mo of lossMonths) console.log(`${mo[0]}: ${mo[1]}`);
+console.log("Sum of losses:", lossMonths.map(el => el[1]).reduce((a, b) => a + b));
+console.log("---------");
+
+// Amount of profit over entire period
+const profitMonths = data.filter(el => el[1] > 0);
+console.log("All profit months:");
+for(const mo of profitMonths) console.log(`${mo[0]}: ${mo[1]}`);
+console.log("Sum of profit:", profitMonths.map(el => el[1]).reduce((a, b) => a + b));
+console.log("---------");
+
+// Most worst month (date and amount)
+const lossMonthSorted = lossMonths.sort((a, b) => a[1] > b[1]);
+console.log("Most worst month:", lossMonthSorted[0].join(": "));
+console.log("---------");
+
+// Most profitable month (date and amount)
+const profitMonthsSorted = profitMonths.sort((a, b) => a[1] < b[1]);
+console.log("Most profitable month:", profitMonthsSorted[0].join(": "));
+console.log("---------");
+
+// Total and average
+const total = data.map(el => el[1]).reduce((a, b) => a + b);
+const average = total / data.length;
+console.log("Total:", total);
+console.log("Average per month:", average.toFixed(2));
+
